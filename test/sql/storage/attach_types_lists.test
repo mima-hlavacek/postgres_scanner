@@ -87,6 +87,18 @@ INSERT INTO lists VALUES (NULL);
 statement ok
 INSERT INTO lists VALUES ([NULL, 'string 123', 's']);
 
+statement ok
+INSERT INTO LISTS VALUES (['']);
+
+statement ok
+INSERT INTO LISTS VALUES (['', '']);
+
+statement ok
+INSERT INTO LISTS VALUES (['s', '']);
+
+statement ok
+INSERT INTO LISTS VALUES (['a', '}', 'b']);
+
 query I
 SELECT * FROM lists
 ----
@@ -94,6 +106,10 @@ SELECT * FROM lists
 []
 NULL
 [NULL, string 123, s]
+[]
+[, ]
+[s, ]
+[a, }, b]
 
 # timestamp list
 foreach type TIMESTAMP TIMESTAMP_MS TIMESTAMP_NS TIMESTAMP_S

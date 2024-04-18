@@ -30,6 +30,9 @@ INSERT INTO varchars VALUES ('🦆🦆🦆🦆🦆🦆🦆🦆');
 statement ok
 INSERT INTO varchars VALUES (NULL);
 
+statement ok
+INSERT INTO varchars VALUES ('\xB01');
+
 query I
 SELECT * FROM varchars
 ----
@@ -37,3 +40,4 @@ SELECT * FROM varchars
 this is a long string
 🦆🦆🦆🦆🦆🦆🦆🦆
 NULL
+\xB01
